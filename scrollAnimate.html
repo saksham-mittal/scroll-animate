@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    
+    <head>
+      
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <title>Scroll Animation</title>
+        
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        
+        <style>
+        
+            body {
+                padding: 0;
+                margin: 0;
+                font-family: 'Raleway', sans-serif;
+                -webkit-font-smoothing: antialiased;
+            }
+        
+            .space1 {
+                background-color: #d3d3d3;
+                width: 100%;
+                height: 700px;
+            }
+            
+            .space2 {
+                background-color: #d3d3d3;
+                width: 100%;
+                height: 800px;
+                margin-top: 127px; 
+            }
+            
+            .iphone {
+                position: relative;
+                height: 4320px;
+            }
+            
+            .textContent {
+                position: absolute;
+                top: 520px;
+                left: 90px;
+            }
+            
+            p {
+                text-align: center;
+                font-size: 20px;
+                font-weight: 200;
+            }
+            
+            .backFull {
+                position: absolute;
+                top: 770px;
+                overflow: hidden;
+                width: 700px;
+                height: 806px;
+                right: 40px;
+            }
+            
+            .iPhone {
+                position: absolute;
+                background-image: url(PicApp%20-%20iPhone%207%20Jet%20Black.png);
+                height: 506px;
+                width: 244px;
+            }
+            
+            .scaled {
+                position: absolute;
+                top: 800px;
+                right: 600px;
+                height: 506px;
+                width: 244px;
+            }
+            
+            .image {
+                position: relative;
+                top: 57px;
+                right: -14px;
+                height: 380px;
+                width: 217px;
+                overflow: hidden;
+            }
+            
+            #img1 {
+                position: absolute;
+                left: 0;
+                width: 215px;
+                z-index: 2;
+            }
+            
+            #img2 {
+                position: absolute;
+                height: 383px;
+                left: 0;
+                width: 217px;
+                z-index: 1;
+            }
+            
+            .footer {
+                position: relative;
+                width: 100%;
+                height: 60px;
+                line-height: 60px;
+                background-color: #191919;
+                color: #fff;
+                font-size: 12px;
+            }
+            
+        </style>
+      
+    </head>
+    <body>
+        
+        <div class="space1">
+            <h2 class="display" style='position: relative; left: 36%; top: 40%;'>Scroll to see one of my work!</h2>
+            <p class="lead" style='position: relative; top: 44%; left: 6%;'><i>- Saksham Mittal</i></p>
+        </div>
+        
+        <div class="iphone hidden">
+            
+            <div class="textContent">
+                <p><a href="http://connect-com.stackstaging.com/front.php" style='text-decoration: none; color: #47C9E5; cursor: pointer;'>This</a> is a bog website made by me.</p>
+            </div>
+            
+            <div class="backFull">
+                <img src="blogScreenshotWeb.png" style='position: relative; width: 100%'>
+            </div>
+            
+            <div class="scaled">
+                <div class="iPhone">
+                    <div class="image">
+                        <img src="blogSreenshotMobile.png" id="img1">
+                        <img src="card.png" id="img2">
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="space2">
+            <h2 class="display" style='position: relative; left: 43%; top: 47%;'>Hope you like it!</h2>
+            <p class="lead muted" style='position: relative; top: 55%; left: 1%;'>Check out the blog <a href="http://connect-com.stackstaging.com/front.php" style='text-decoration: none; color: grey; cursor: pointer;'>here!</a></p>
+        </div>
+        
+        <div class="footer">
+            <div class="container pl-5" id="footerContainer">
+                COPYRIGHT <strong style='color: grey;'>&copy;SAKSHAM MITTAL</strong> - 2017
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        
+        <script type="text/javascript">
+        
+            $(document).ready(function() {
+                
+                $(document).on('scroll', function() {
+                    var scrollTop = $(document).scrollTop();
+                    
+                    if(scrollTop < 700) {
+                        $('.backFull').css({ 
+                            transform: 'translate(0, ' + (-(scrollTop)) + 'px)'
+                        });
+                        $('.textContent').css({ 
+                            transform: 'translate(0, ' + (-(scrollTop)/3.6) + 'px)'
+                        });
+                        $('.scaled').css({ 
+                            transform: 'translate(0, ' + (-(scrollTop)/1.1) + 'px)'
+                        });
+                    }
+                    
+                    if(scrollTop > 700 ) {
+                        
+                        $('.backFull').css({
+                            top: '70px',
+                            position: 'fixed'
+                        });
+                        
+                        $('.scaled').css({ 
+                            top: '160px',
+                            position: 'fixed'
+                        });
+                        
+                        $('.textContent').css({
+                            top: '320px',
+                            position: 'fixed'
+                        });
+                        
+                        $('#img1').css({ 
+                            left: (scrollTop-700)/10 + 'px'
+                        });
+                        
+                        if( scrollTop < 2860 ) {
+                            if( scrollTop < 700 ) {
+                                $('.scaled').css({ 
+                                    transform: 'rotate(0deg)'
+                                });
+                            }
+                            $('.scaled').css({
+                                transform: 'rotate(' + ((scrollTop-700)/24) + 'deg)'
+                            });
+                            $('.iPhone').css({
+                                transform: 'scale(' + (1 + (scrollTop-700)/9000) + ', ' + (1 + (scrollTop-700)/9000) + ')'
+                            });
+                            $('.textContent').css({
+                                transform: 'scale(' + (1 - (scrollTop-700)/5000) + ', ' + (1 - (scrollTop-700)/5000) + ')',
+                                opacity: (1 - (scrollTop-700)/2060) 
+                            });
+                            $('.backFull').css({
+                                transform: 'scale(' + (1 - (scrollTop-700)/5000) + ', ' + (1 - (scrollTop-700)/5000) + ')',
+                                opacity: (1 - (scrollTop-700)/1660) 
+                            });
+                        }
+                        
+                        if(scrollTop >= 2960) {
+                            $('.scaled').css({
+                                transform: 'rotate(90deg) translate('+ ((scrollTop-2960)/2.4) + 'px, 0)'
+                            });
+                        }
+                        
+                    } else {
+                        $('.backFull').css({
+                            top: '770px',
+                            position: 'absolute'
+                        });
+                        $('.scaled').css({
+                            top: '800px',
+                            position: 'absolute'
+                        });
+                        $('.textContent').css({ 
+                            top: '520px',
+                            position: 'absolute'
+                        });
+                        $('#img1').css({ 
+                            left: '0px'
+                        });
+                    }
+                });
+                
+                
+            });
+        
+        </script>
+        
+    </body>
+    
+</html>
